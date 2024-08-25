@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestión de Vuelos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="../CSS/estilos.css">
+
+</head>
+
+  <body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+    <section id="encabezado,titulo,subtitulo">
+
+        <!--coloque un banner-->
+        <div class="jumbotron jumbotron-fluid text-center text-white" style="background-image: url('../IMG/avion1.jpg'); background-size: cover; background-position: center; height: 200px;">
+            <div class="container">
+            <h1 class="display-4" id="titulo">Compañía Argentina</h1>
+            <br><br>
+                <h2>Gestión de Vuelos</h2>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="menu_navegacion">
+
+
+        <div class="container text-center">
+
+            <div class="row">
+              <div class="col">
+                <a href="#" class="menu">Registrar usuario </a> 
+              </div>
+              <div class="col">
+                <a href="#" class="menu">Consultar vuelos</a>
+              </div>
+              <div class="col">
+                <a href="#" class="menu">Ver reservas realizadas</a>
+              </div>
+              <div class="col">
+                <a href="#" class="menu">Eliminar reservas realizadas </a>
+              </div>
+            </div>
+
+        </div>
+        
+    </section>
+
+    <br>
+
+    <!--aquie uso un diseño responsivo de bootstrap de tres columnas, pero solo uso la del medio para colocar el formulario-->
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col order-last">
+         
+        </div>
+        <div class="col-sm-7 p-3">
+          <form action="pagina2_css.html">
+         
+            <fieldset class="formulario">
+                <legend>formulario para consultar vuelo</legend>
+
+                
+                <label for="ubicacion">seleccione origen del vuelo</label>
+                <select name="ubicacion" id="ubicacion">
+                    <option value="cordoba">CORDOBA</option>
+                    <option value="mendoza">MENDOZA</option>
+                    <option value="tucuman">TUCUMAN</option>
+                </select>
+
+                <br><br>
+
+                <label for="ubicacion">seleccione destino del vuelo</label>
+                <select name="ubicacion" id="ubicacion">
+                    <option value="cordoba1">CORDOBA</option>
+                    <option value="mendoza1">MENDOZA</option>
+                    <option value="tucuman1">TUCUMAN</option>
+                </select>
+                    
+
+                <br><br>
+                <label for="fecha">fecha del vuelo</label>
+                <input type="date" id="fecha" name="fecha">
+                <br><br><br>
+
+                <input type="submit" name="aceptar" value="Buscar"/>
+                <input type="reset" name="cancelar" value="Cancelar"/>
+
+            </fieldset>
+
+        </form>
+        </div>
+        <div class="col order-first">
+          
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+    
+    <section>
+
+        <footer class="bg-dark text-white pt-1">
+            <div class="container">
+              <div class="row">
+    
+                <div class="col-md-4">
+                  <h5>redes</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">facebook</a></li>
+                    <li><a href="#" class="text-white">instagram</a></li>
+                    <li><a href="#" class="text-white">gmail</a></li>
+                  </ul>
+                </div>
+        
+              <div class="text-center py-3 mt-1">
+                <p class="mb-0">&copy; Sitio Oficial de Compañía Argentina-2017.</p>
+              </div>
+            </div>
+          </footer>
+    </section>
+</body>
+
+</html>
+
+<!--me cuesta entender como usar los conteiners de bootstrap y no pude centrar bien el formulario en la pagina-->
