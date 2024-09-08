@@ -1,0 +1,23 @@
+#titulo{
+    color: white;
+    font-family: Arial, sans-serif;
+    text-shadow: 2px 2px 5px black;
+    text-align: center;
+    background-color:#333;
+}
+
+.formulario{
+    text-align: center;
+}
+
+body{
+    background-color: lightgray;
+}
+
+fieldset {
+    width: 90%; 
+    max-width: 700px; 
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
