@@ -48,18 +48,18 @@
                   <input type="time" id="hora" name="hora" disabled>
                   <br><br>
 
+                  <label for="pasajes" class="editado">cantidad de pasajes</label>
+                  <input type="number" id="pasajes" name="pasajes" min="1" max="50" required>
+                  <br><br>
+
                   <label for="clase">tipo de clase</label>
-                  <select name="clase" id="clase">
+                  <select name="clase" id="clase" onchange="gestionar_segun_clase()">
                     <option value="">seleccionar</option>
                     <option value="economica">ECONOMICA</option>
                     <option value="ejecutiva">EJECUTIVA</option>
                   </select>
-
+                     
                   <br><br>
-                  <label for="pasajes" class="editado">cantidad de pasajes</label>
-                  <input type="number" id="pasajes" name="pasajes" min="1" max="50" required>
-                  <br><br>
-                        
                   <label for="ubicacion" class="editado">ubicacion del haciento</label>
                   <select name="ubicacion" id="ubicacion">
                       <option value="">seleccionar</option>
@@ -73,12 +73,8 @@
                   <input type="number" id="silla" name="silla" min="1" max="50">
                   <br><br>
                         
-                  <label for="nombre">Nombre</label>
-                  <input type="text" name="nombre" id="nombre">
-                        
-                  <br><br>
-                  <label for="apellido">Apellido</label>
-                  <input type="text" name="apellido" id="apellido">
+                  <label for="nombre">Apellido y Nombre</label>
+                  <input type="text" name="nombre" id="nombre" maxlength="100" required>
                   <br><br>
 
                   <label for="dni">DNI</label>
