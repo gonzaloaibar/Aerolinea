@@ -19,7 +19,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
 function habilitar_opciones(){
     const destino=document.getElementById("destino");
     for(let i=0;i<destino.options.length;i++){
-        destino.options[i].disable=false;
+        destino.options[i].disabled=false;
     }
 }
 
@@ -34,7 +34,7 @@ function verificar_destino(){
 
     for(let i=0;i<destino.options.length; i++){
         if(destino.options[i].value===origen){
-            destino.options[i].disable=true;
+            destino.options[i].disabled=true;
         }
     }
     
