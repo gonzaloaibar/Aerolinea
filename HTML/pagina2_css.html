@@ -52,6 +52,7 @@
                   <input type="number" id="pasajes" name="pasajes" min="1" max="50" value="0" required>
                   <br><br>
 
+                  <!--
                   <label for="clase">tipo de clase</label>
                   <select name="clase" id="clase" onchange="gestionar_segun_clase()">
                     <option value="">seleccionar</option>
@@ -66,12 +67,8 @@
                       <option value="ventanilla">VENTANILLA</option>
                       <option value="centro">CENTRO</option>
                       <option value="pasillo">PASILLO</option>
-                  </select>
-
-                  <br><br>
-                  <label for="silla">seleccione numero de silla</label>
-                  <input type="number" id="silla" name="silla" min="1" max="50">
-                  <br><br>
+                  </select> -->
+                 
                   
                   <div id="contenedor">
 
@@ -79,23 +76,9 @@
                   </div>
                   
                   <br><br>
-
-                  <p>seleccione el sexo</p>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      masculino
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      femenino
-                    </label>
-                  </div>
         
                   <br><br>
-                  <input type="submit" name="aceptar" value="Buscar"/>
+                  <input type="submit" name="aceptar" value="registrar"/>
                   <input type="reset" name="cancelar" value="Cancelar"/>
                 </fieldset>
             </form>
@@ -103,7 +86,12 @@
 
         </div>
         <div class="col-6">
-            <h2>Tabla de Pasajeros</h2>
+            
+        </div>
+
+      </div>
+
+      <h2>Tabla de Pasajeros</h2>
             <table id="tablaPasajeros">
                 <thead>
                     <tr>
@@ -111,24 +99,14 @@
                         <th>Nombre y Apellido</th>
                         <th>DNI</th>
                         <th>Fecha de Nacimiento</th>
+                        <th>Asiento</th>
+                        <th>Clase</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Aquí se agregarán las filas de los pasajeros -->
                 </tbody>
-            </table>
-        </div>
-
-      </div>
-
-      <section>
-
-         
-        
-                         
-                    
-          
-      </section>
+        </table>
 
 
       <br><br>

@@ -49,12 +49,13 @@ function gestionar_segun_clase(){
     limitar_numero_hacientos();
 }
 
-/*ampliar campos segun la cantidad de pasajes*/
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.getElementById('formularioPasajeros');
     const tabla = document.getElementById('tablaPasajeros').querySelector('tbody');
 
+    /*ampliar campos segun la cantidad de pasajes*/
     document.getElementById("pasajes").addEventListener("input", function(){
         const cantidad = parseInt(this.value, 10); // Convertir el valor a número entero
         const contenedorPasajeros = document.getElementById("contenedor");
@@ -75,7 +76,38 @@ document.addEventListener('DOMContentLoaded', function() {
                     <br>
                     <label for="fecha${i}">Fecha de Nacimiento:</label>
                     <input type="date" id="fecha${i}" name="fecha${i}" required>
-                    <br>
+                    <br><br>
+                    <label for="clase${i}">tipo de clase</label>
+                    <select name="clase${i}" id="clase${i}" onchange="gestionar_segun_clase()">
+                        <option value="">seleccionar</option>
+                        <option value="economica">ECONOMICA</option>
+                        <option value="ejecutiva">EJECUTIVA</option>
+                    </select>
+                    <br><br>
+                    <label for="ubicacion${i}">ubicacion del haciento</label>
+                    <select name="ubicacion${i}" id="ubicacion${i}">
+                        <option value="">seleccionar</option>
+                        <option value="ventanilla">VENTANILLA</option>
+                        <option value="centro">CENTRO</option>
+                        <option value="pasillo">PASILLO</option>
+                    </select>
+                    <br><br>
+                    <label for="silla${i}">seleccione numero de silla</label>
+                    <input type="number" id="silla${i}" name="silla${i}" min="1" max="50">
+                    <br><br>
+                    <p>seleccione el sexo</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                        masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                        femenino
+                        </label>
+                    </div>
                 `;
                 contenedorPasajeros.appendChild(pasajeroDiv);
             }
