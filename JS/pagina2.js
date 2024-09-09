@@ -48,3 +48,40 @@ function gestionar_segun_clase(){
 
     limitar_numero_hacientos();
 }
+
+/*ampliar campos segun la cantidad de pasajes*/
+
+document.getElementById("pasajes").addEventListener("input", function(){
+    const cantidad = parseInt(this.value, 10); // Convertir el valor a número entero
+    const contenedorPasajeros = document.getElementById("contenedor");
+    const pasajerosExistentes = contenedorPasajeros.children.length;
+
+    if (cantidad > pasajerosExistentes) {
+        for (let i = pasajerosExistentes + 1; i <= cantidad; i++) {
+            const pasajeroDiv = document.createElement('div');
+            pasajeroDiv.classList.add('pasajero');
+            pasajeroDiv.setAttribute('id', `pasajero-${i}`);
+            pasajeroDiv.innerHTML = `
+                <h3>Pasajero ${i}</h3>
+                <label for="nombre${i}">Nombre y Apellido:</label>
+                <input type="text" id="nombre${i}" name="nombre${i}" required>
+                <br>
+                <label for="dni${i}">DNI:</label>
+                <input type="text" id="dni${i}" name="dni${i}" required>
+                <br>
+                <label for="fecha${i}">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha${i}" name="fecha${i}" required>
+                <br>
+            `;
+            contenedorPasajeros.appendChild(pasajeroDiv);
+        }
+    }else if (cantidad < pasajerosExistentes) {
+        for (let i = pasajerosExistentes; i > cantidad; i--) {
+            const pasajeroAEliminar = document.getElementById(`pasajero-${i}`);
+            if (pasajeroAEliminar) {
+                contenedorPasajeros.removeChild(pasajeroAEliminar);
+            }
+        }
+    }
+
+})
