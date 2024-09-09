@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="../CSS/pagina2.css">
         
 
-        <title>Registro de reserva</title>
+        <title>Registro de reserva2</title>
 
     </head>
     <body>
@@ -17,83 +17,93 @@
     
       <h1 id="titulo">Reservar Vuelo</h1>
 
-      <br>
-
-      <div class="row">
+      <div class="row"></div>
         <div class="col-6">
-          <form id="formularioPasajeros" class="formulario" action="pagina1_css.html">
-            <fieldset id="form">
-              <legend>Registro de reserva</legend>
-                  <br>
-                  <p>seleccione el origen del vuelo</p>
-                  <input type="radio" name="origen" id="cordoba" disabled>
-                  <label for="cordoba">CORDOBA</label><br>
-                  <input type="radio" name="origen" id="mendoza" disabled>
-                  <label for="mendoza">MENDOZA</label><br>
-                  <input type="radio" name="origen" id="tucuman" disabled>
-                  <label for="tucuman">TUCUMAN</label>
-                  <p>seleccione el destino del vuelo</p>
-                  <input type="radio" name="lugar" id="cordoba2" disabled>
-                  <label for="cordoba2">CORDOBA</label><br>
-                  <input type="radio" name="lugar" id="mendoza2" disabled>
-                  <label for="mendoza2">MENDOZA</label><br>
-                  <input type="radio" name="lugar" id="tucuman2" disabled>
-                  <label for="tucuman2">TUCUMAN</label>
+            <form id="formularioPasajeros">
+                <fieldset id="form">
+                    <legend>Registro de reserva</legend>
+                    <br>
 
-                  <br><br>
-                  <label for="fecha">fecha del vuelo</label>
-                  <input type="date" id="fecha" name="fecha" disabled>
-                  <br><br>
-                  <label for="hora">hora del vuelo</label>
-                  <input type="time" id="hora" name="hora" disabled>
-                  <br><br>
+                    <label for="origen">origen del vuelo</label>
+                    <select name="origen" id="origen" disabled>
+                        <option value="">seleccionar</option>
+                        <option value="cordoba">CORDOBA</option>
+                        <option value="mendoza">MENDOZA</option>
+                        <option value="tucuman">TUCUMAN</option>
+                    </select>
 
-                  <label for="pasajes" class="editado">cantidad de pasajes</label>
-                  <input type="number" id="pasajes" name="pasajes" min="1" max="50" value="0" required>
-                  <br><br>
+                    <br><br>
+                    <label for="destino">destino del vuelo</label>
+                    <select name="destino" id="destino" disabled>
+                        <option value="">seleccionar</option>
+                        <option value="cordoba">CORDOBA</option>
+                        <option value="mendoza">MENDOZA</option>
+                        <option value="tucuman">TUCUMAN</option>
+                    </select>
 
-                  <!--
-                  <label for="clase">tipo de clase</label>
-                  <select name="clase" id="clase" onchange="gestionar_segun_clase()">
-                    <option value="">seleccionar</option>
-                    <option value="economica">ECONOMICA</option>
-                    <option value="ejecutiva">EJECUTIVA</option>
-                  </select>
-                     
-                  <br><br>
-                  <label for="ubicacion" class="editado">ubicacion del haciento</label>
-                  <select name="ubicacion" id="ubicacion">
-                      <option value="">seleccionar</option>
-                      <option value="ventanilla">VENTANILLA</option>
-                      <option value="centro">CENTRO</option>
-                      <option value="pasillo">PASILLO</option>
-                  </select> -->
-                 
-                  
-                  <div id="contenedor">
-
-
-                  </div>
-                  
-                  <br><br>
+                    <br><br>
+                    <label for="fecha">fecha del vuelo</label>
+                    <input type="date" id="fecha" name="fecha" disabled>
+                    <br><br>
+                    <label for="hora">hora del vuelo</label>
+                    <input type="time" id="hora" name="hora" disabled>
+                    <br><br>
         
-                  <br><br>
-                  <input type="submit" name="aceptar" value="registrar"/>
-                  <input type="reset" name="cancelar" value="Cancelar"/>
+                    <label for="cantidadPasajes">Cantidad de Pasajes:</label>
+                    <input type="number" id="cantidadPasajes" value="1" min="1" max="10"><br><br>
+        
+                    <div id="contenedorPasajeros">
+                        
+                        <div class="pasajero" id="pasajero-1">
+                            <h3>Pasajero 1</h3>
+                            <label for="nombre1">Nombre y Apellido:</label>
+                            <input type="text" id="nombre1" name="nombre1" required><br>
+        
+                            <label for="dni1">DNI:</label>
+                            <input type="text" id="dni1" name="dni1" required><br>
+        
+                            <label for="fecha1">Fecha de Nacimiento:</label>
+                            <input type="date" id="fecha1" name="fecha1" required><br>
+        
+                            <label for="clase1">Clase:</label>
+                            <select id="clase1" name="clase1" onchange="gestionar_segun_clase(1)" required>
+                                <option value="">seleccionar</option>
+                                <option value="Ejecutiva">Ejecutiva</option>
+                                <option value="Económica">Económica</option>
+                            </select><br>
+        
+                            <label for="ubicacion1">ubicacion del haciento</label>
+                            <select name="ubicacion1" id="ubicacion1">
+                                <option value="">seleccionar</option>
+                                <option value="ventanilla">VENTANILLA</option>
+                                <option value="centro">CENTRO</option>
+                                <option value="pasillo">PASILLO</option>
+                            </select>
+                            <br><br>
+        
+                            <label for="silla1">seleccione numero de silla</label>
+                            <input type="number" id="silla1" name="silla1" min="1" max="50">
+                            <br><br>
+                        </div>
+                    </div>
+                    
+                    <input type="submit" name="aceptar" value="registrar"/>
+                    <input type="reset" name="cancelar" value="Cancelar"/>
                 </fieldset>
             </form>
 
-
-        </div>
-        <div class="col-6">
-            
         </div>
 
-      </div>
+        <div class="col-6"></div>
 
-      <div class="row">
+        </div>
+    </div>
+
+    <br>
+    
+    <div class="row">
         <div class="col-12">
-          <h2>Tabla de Pasajeros</h2>
+            <h3>Tabla de Pasajeros</h3>
             <table id="tablaPasajeros">
                 <thead>
                     <tr>
@@ -107,36 +117,36 @@
                 <tbody>
                     <!-- Aquí se agregarán las filas de los pasajeros -->
                 </tbody>
-        </table>
+            </table>
 
         </div>
-      </div>
-      
+    </div>
 
+    <br><br>
 
-      <br><br>
+    <section>
 
-      <section>
-
-          <footer class="bg-dark text-white pt-1">
-              <div class="container">
-                <div class="row">
-      
-                  <div class="col-md-4">
-                    <h5>redes</h5>
-                    <ul class="list-unstyled">
-                      <li><a href="#" class="text-white">facebook</a></li>
-                      <li><a href="#" class="text-white">instagram</a></li>
-                      <li><a href="#" class="text-white">gmail</a></li>
-                    </ul>
-                  </div>
-          
-                <div class="text-center py-3 mt-1">
-                  <p class="mb-0">&copy; Sitio Oficial de Compañía Argentina-2017.</p>
+        <footer class="bg-dark text-white pt-1">
+            <div class="container">
+              <div class="row">
+    
+                <div class="col-md-4">
+                  <h5>redes</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">facebook</a></li>
+                    <li><a href="#" class="text-white">instagram</a></li>
+                    <li><a href="#" class="text-white">gmail</a></li>
+                  </ul>
                 </div>
+        
+              <div class="text-center py-3 mt-1">
+                <p class="mb-0">&copy; Sitio Oficial de Compañía Argentina-2017.</p>
               </div>
-            </footer>
-      </section>
+            </div>
+          </footer>
+    </section>
+
+      
         
       <script src="../JS/pagina2.js"></script>
 
