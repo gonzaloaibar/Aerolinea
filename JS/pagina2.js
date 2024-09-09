@@ -51,37 +51,73 @@ function gestionar_segun_clase(){
 
 /*ampliar campos segun la cantidad de pasajes*/
 
-document.getElementById("pasajes").addEventListener("input", function(){
-    const cantidad = parseInt(this.value, 10); // Convertir el valor a número entero
-    const contenedorPasajeros = document.getElementById("contenedor");
-    const pasajerosExistentes = contenedorPasajeros.children.length;
+document.addEventListener('DOMContentLoaded', function() {
+    const formulario = document.getElementById('formularioPasajeros');
+    const tabla = document.getElementById('tablaPasajeros').querySelector('tbody');
 
-    if (cantidad > pasajerosExistentes) {
-        for (let i = pasajerosExistentes + 1; i <= cantidad; i++) {
-            const pasajeroDiv = document.createElement('div');
-            pasajeroDiv.classList.add('pasajero');
-            pasajeroDiv.setAttribute('id', `pasajero-${i}`);
-            pasajeroDiv.innerHTML = `
-                <h3>Pasajero ${i}</h3>
-                <label for="nombre${i}">Nombre y Apellido:</label>
-                <input type="text" id="nombre${i}" name="nombre${i}" required>
-                <br>
-                <label for="dni${i}">DNI:</label>
-                <input type="text" id="dni${i}" name="dni${i}" required>
-                <br>
-                <label for="fecha${i}">Fecha de Nacimiento:</label>
-                <input type="date" id="fecha${i}" name="fecha${i}" required>
-                <br>
-            `;
-            contenedorPasajeros.appendChild(pasajeroDiv);
-        }
-    }else if (cantidad < pasajerosExistentes) {
-        for (let i = pasajerosExistentes; i > cantidad; i--) {
-            const pasajeroAEliminar = document.getElementById(`pasajero-${i}`);
-            if (pasajeroAEliminar) {
-                contenedorPasajeros.removeChild(pasajeroAEliminar);
+    document.getElementById("pasajes").addEventListener("input", function(){
+        const cantidad = parseInt(this.value, 10); // Convertir el valor a número entero
+        const contenedorPasajeros = document.getElementById("contenedor");
+        const pasajerosExistentes = contenedorPasajeros.children.length;
+
+        if (cantidad > pasajerosExistentes) {
+            for (let i = pasajerosExistentes + 1; i <= cantidad; i++) {
+                const pasajeroDiv = document.createElement('div');
+                pasajeroDiv.classList.add('pasajero');
+                pasajeroDiv.setAttribute('id', `pasajero-${i}`);
+                pasajeroDiv.innerHTML = `
+                    <h3>Pasajero ${i}</h3>
+                    <label for="nombre${i}">Nombre y Apellido:</label>
+                    <input type="text" id="nombre${i}" name="nombre${i}" required>
+                    <br>
+                    <label for="dni${i}">DNI:</label>
+                    <input type="text" id="dni${i}" name="dni${i}" required>
+                    <br>
+                    <label for="fecha${i}">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha${i}" name="fecha${i}" required>
+                    <br>
+                `;
+                contenedorPasajeros.appendChild(pasajeroDiv);
+            }
+        }else if (cantidad < pasajerosExistentes) {
+            for (let i = pasajerosExistentes; i > cantidad; i--) {
+                const pasajeroAEliminar = document.getElementById(`pasajero-${i}`);
+                if (pasajeroAEliminar) {
+                    contenedorPasajeros.removeChild(pasajeroAEliminar);
+                }
             }
         }
+
+    })
+
+    formulario.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto (recargar la página)
+
+        const cantidad = parseInt(document.getElementById('pasajes').value, 10);
+        for (let i = 1; i <= cantidad; i++) {
+            const nombre = document.getElementById(`nombre${i}`).value;
+            const dni = document.getElementById(`dni${i}`).value;
+            const fecha = document.getElementById(`fecha${i}`).value;
+
+            agregarFilaATabla(i, nombre, dni, fecha);
+        }
+
+        // Limpiar los campos del formulario después de agregar los datos a la tabla
+        formulario.reset();
+        document.getElementById('pasajes').value = 0; // Restablecer el valor de cantidad a 1
+    });
+
+    function agregarFilaATabla(pasajeroNum, nombre, dni, fecha) {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>Pasajero ${pasajeroNum}</td>
+            <td>${nombre}</td>
+            <td>${dni}</td>
+            <td>${fecha}</td>
+        `;
+        tabla.appendChild(fila);
     }
+
+
 
 })
