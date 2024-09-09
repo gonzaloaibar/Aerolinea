@@ -1,28 +1,26 @@
 
+//EJERCICIO2
 
-/*limitar hacientos segun la clase
+/*limitar hacientos segun la clase*/
+function limitar_numero_hacientos(i){
+    const clase=document.getElementById(`clase${i}`).value;
 
-function limitar_numero_hacientos(){
-    const clase=document.getElementById("clase").value;
+    const numero_de_sillas=document.getElementById(`silla${i}`);
 
-    const numero_de_sillas=document.getElementById("silla");
-
-    if(clase==="ejecutiva"){
+    if(clase==="Ejecutiva"){
         numero_de_sillas.min=1;
         numero_de_sillas.max=8;
         numero_de_sillas.value="";
-    }else if(clase==="economica"){
+    }else if(clase==="Economica"){
         numero_de_sillas.min=9;
         numero_de_sillas.max=50;
         numero_de_sillas.value="";
     }
 
     
-}*/
+}
 
-
-
-
+/*limitar ubicacion de asiento segun la clase */
 function habilitar_opciones(i){
     const ubicacion=document.getElementById(`ubicacion${i}`);
     for(let i=0;i<ubicacion.options.length;i++){
@@ -47,11 +45,13 @@ function seleccionar_ubicacion(i){
 function gestionar_segun_clase(i){
     seleccionar_ubicacion(i);
 
-    //limitar_numero_hacientos();
+    limitar_numero_hacientos(i);
 }
 
 
+//EJERCICIO 3(incompleto)
 
+/*registro de los pasajeros en una tabla dinamica */
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.getElementById('formularioPasajeros');
     const tabla = document.getElementById('tablaPasajeros').querySelector('tbody');
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <select id="clase${numero}" name="clase${numero}" onchange="gestionar_segun_clase(${numero})" required>
                 <option value="">seleccionar</option>
                 <option value="Ejecutiva">Ejecutiva</option>
-                <option value="Económica">Económica</option>
+                <option value="Economica">Económica</option>
             </select><br>
             <label for="ubicacion${numero}">ubicacion del haciento</label>
             <select name="ubicacion${numero}" id="ubicacion${numero}">
@@ -104,10 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 <option value="centro">CENTRO</option>
                 <option value="pasillo">PASILLO</option>
              </select>
-            <br><br>
-                
+            <br><br>   
             <label for="silla${numero}">seleccione numero de silla</label>
             <input type="number" id="silla${numero}" name="silla${numero}" min="1" max="50">
+            <br><br>
+            <label for="genero${numero}">seleccione su sexo</label>
+            <br>
+            <input type="radio" id="hombre${numero}" name="sexo${numero}" value="Hombre">
+            <label for="hombre${numero}">Hombre</label>
+            <input type="radio" id="mujer${numero}" name="sexo${numero}" value="Mujer">
+            <label for="mujer${numero}">Mujer</label>
             <br><br>
         `;
         contenedorPasajeros.appendChild(pasajeroDiv);
