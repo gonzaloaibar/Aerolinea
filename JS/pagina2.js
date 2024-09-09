@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <input type="date" id="fecha${i}" name="fecha${i}" required>
                     <br><br>
                     <label for="clase${i}">tipo de clase</label>
-                    <select name="clase${i}" id="clase${i}" onchange="gestionar_segun_clase()">
+                    <select name="clase${i}" id="clase${i}" required>
                         <option value="">seleccionar</option>
                         <option value="economica">ECONOMICA</option>
                         <option value="ejecutiva">EJECUTIVA</option>
@@ -130,8 +130,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const nombre = document.getElementById(`nombre${i}`).value;
             const dni = document.getElementById(`dni${i}`).value;
             const fecha = document.getElementById(`fecha${i}`).value;
-
-            agregarFilaATabla(i, nombre, dni, fecha);
+            const num_asiento=document.getElementById(`silla${i}`).value;
+            const clase=document.getElementById(`clase${i}`).value;
+            
+            agregarFilaATabla(i, nombre, dni, fecha, num_asiento, clase);
         }
 
         // Limpiar los campos del formulario después de agregar los datos a la tabla
@@ -139,13 +141,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('pasajes').value = 0; // Restablecer el valor de cantidad a 1
     });
 
-    function agregarFilaATabla(pasajeroNum, nombre, dni, fecha) {
+    function agregarFilaATabla(pasajeroNum, nombre, dni, fecha, num_asiento,clase) {
         const fila = document.createElement('tr');
         fila.innerHTML = `
             <td>Pasajero ${pasajeroNum}</td>
             <td>${nombre}</td>
             <td>${dni}</td>
             <td>${fecha}</td>
+            <td>${num_asiento}</td>
+            <td>${clase}</td>
         `;
         tabla.appendChild(fila);
     }
