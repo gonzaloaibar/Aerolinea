@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const num_asiento=document.getElementById(`silla${i}`).value;
             const clase=document.getElementById(`clase${i}`).value;
             
-            agregarFilaATabla(i, nombre, dni, fecha, num_asiento, clase);
+            agregarFilaATabla(nombre, dni, fecha, num_asiento, clase);
         }
 
         // Limpiar los campos del formulario después de agregar los datos a la tabla
@@ -141,10 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('pasajes').value = 0; // Restablecer el valor de cantidad a 1
     });
 
-    function agregarFilaATabla(pasajeroNum, nombre, dni, fecha, num_asiento,clase) {
+    function agregarFilaATabla(nombre, dni, fecha, num_asiento,clase) {
         const fila = document.createElement('tr');
         fila.innerHTML = `
-            <td>Pasajero ${pasajeroNum}</td>
             <td>${nombre}</td>
             <td>${dni}</td>
             <td>${fecha}</td>
